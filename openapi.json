@@ -1,0 +1,356 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Soundpiece API",
+    "description": "API for AI-powered music generation, MIDI creation, vocal/instrumental separation, TTS, remixing, key/BPM detection, metadata extraction, and audio analytics.",
+    "license": {
+      "name": "MIT"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://api.soundpiece.co"
+    }
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ],
+  "paths": {
+    "/music/generate": {
+      "post": {
+        "description": "Generate a full-length song from a text prompt",
+        "requestBody": {
+          "description": "Text prompt describing the song",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MusicGenerationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated music file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MusicGenerationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/midi/generate": {
+      "post": {
+        "description": "Generate MIDI chord progressions or full editable songs from a text prompt",
+        "requestBody": {
+          "description": "Text prompt describing the MIDI output",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MidiGenerationRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated MIDI file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MidiGenerationResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audio/extract": {
+      "post": {
+        "description": "Extract vocals, instruments, or stems from audio",
+        "requestBody": {
+          "description": "Audio file and extraction options",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExtractionRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Extracted audio stems",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ExtractionResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tts": {
+      "post": {
+        "description": "Convert text into expressive speech using custom voice profiles",
+        "requestBody": {
+          "description": "Text and voice options",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/TTSRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Generated speech audio",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TTSResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audio/remix": {
+      "post": {
+        "description": "Remix or edit existing audio to create cutdowns or alternative versions",
+        "requestBody": {
+          "description": "Audio file and remix instructions",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RemixRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Remixed audio file",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RemixResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/audio/analyze": {
+      "post": {
+        "description": "Analyze audio to detect key, BPM, metadata, and fit to a text description",
+        "requestBody": {
+          "description": "Audio file and optional text description for comparison",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AudioAnalysisRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Analysis results",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AudioAnalysisResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "MusicGenerationRequest": {
+        "type": "object",
+        "required": ["prompt"],
+        "properties": {
+          "prompt": { "type": "string", "example": "Energetic electronic track with female vocals" },
+          "length_seconds": { "type": "integer", "example": 180 }
+        }
+      },
+      "MusicGenerationResponse": {
+        "type": "object",
+        "properties": {
+          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/generated_song.mp3" }
+        }
+      },
+      "MidiGenerationRequest": {
+        "type": "object",
+        "required": ["prompt"],
+        "properties": {
+          "prompt": { "type": "string", "example": "Happy jazz chord progression in C major" },
+          "editable": { "type": "boolean", "example": true }
+        }
+      },
+      "MidiGenerationResponse": {
+        "type": "object",
+        "properties": {
+          "midi_url": { "type": "string", "example": "https://soundpiece.co/midi/generated_song.mid" }
+        }
+      },
+      "ExtractionRequest": {
+        "type": "object",
+        "required": ["audio_url", "stems"],
+        "properties": {
+          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/input.mp3" },
+          "stems": { "type": "array", "items": { "type": "string", "enum": ["vocals","drums","bass","other"] } }
+        }
+      },
+      "ExtractionResponse": {
+        "type": "object",
+        "properties": {
+          "stem_urls": { "type": "object", "example": { "vocals": "https://soundpiece.co/audio/vocals.mp3" } }
+        }
+      },
+      "TTSRequest": {
+        "type": "object",
+        "required": ["text", "voice_profile"],
+        "properties": {
+          "text": { "type": "string", "example": "Hello world, welcome to Soundpiece." },
+          "voice_profile": { "type": "string", "example": "custom_female_01" }
+        }
+      },
+      "TTSResponse": {
+        "type": "object",
+        "properties": {
+          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/tts_output.mp3" }
+        }
+      },
+      "RemixRequest": {
+        "type": "object",
+        "required": ["audio_url", "instructions"],
+        "properties": {
+          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/original.mp3" },
+          "instructions": { "type": "string", "example": "Create a 30-second cutdown with upbeat drums" }
+        }
+      },
+      "RemixResponse": {
+        "type": "object",
+        "properties": {
+          "remixed_audio_url": { "type": "string", "example": "https://soundpiece.co/audio/remix.mp3" }
+        }
+      },
+      "AudioAnalysisRequest": {
+        "type": "object",
+        "required": ["audio_url"],
+        "properties": {
+          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/input.mp3" },
+          "text_description": { "type": "string", "example": "Energetic happy dance track" }
+        }
+      },
+      "AudioAnalysisResponse": {
+        "type": "object",
+        "properties": {
+          "key": { "type": "string", "example": "C Major" },
+          "bpm": { "type": "integer", "example": 128 },
+          "metadata": { "type": "object", "example": { "genre": "Electronic", "mood": "Energetic" } },
+          "fit_score": { "type": "number", "format": "float", "example": 0.87 }
+        }
+      },
+      "Error": {
+        "required": ["error", "message"],
+        "type": "object",
+        "properties": {
+          "error": { "type": "integer", "format": "int32" },
+          "message": { "type": "string" }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
