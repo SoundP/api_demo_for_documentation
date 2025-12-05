@@ -19,37 +19,40 @@
     }
   ],
   "paths": {
-    "/music/generate": {
-      "post": {
-        "description": "Generate a full-length song from a text prompt",
+    "/create.new_instrumental": {
+      "put": {
+        "tags": [
+          "Create"
+        ],
+        "summary": "create.new_instrumental",
+        "operationId": "create.new_instrumental",
         "requestBody": {
-          "description": "Text prompt describing the song",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MusicGenerationRequest"
+                "$ref": "#/components/schemas/CreateNewInstrumentalRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Generated music file",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MusicGenerationResponse"
+                  "$ref": "#/components/schemas/CreateNewInstrumentalResponse"
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid request",
+          "422": {
+            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -57,37 +60,40 @@
         }
       }
     },
-    "/midi/generate": {
-      "post": {
-        "description": "Generate MIDI chord progressions or full editable songs from a text prompt",
+    "/create.new_song": {
+      "put": {
+        "tags": [
+          "Create"
+        ],
+        "summary": "create.new_song",
+        "operationId": "create.new_song",
         "requestBody": {
-          "description": "Text prompt describing the MIDI output",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/MidiGenerationRequest"
+                "$ref": "#/components/schemas/CreateNewSongRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Generated MIDI file",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/MidiGenerationResponse"
+                  "$ref": "#/components/schemas/CreateNewSongResponse"
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid request",
+          "422": {
+            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -95,37 +101,40 @@
         }
       }
     },
-    "/audio/extract": {
-      "post": {
-        "description": "Extract vocals, instruments, or stems from audio",
+    "/create.new_sample": {
+      "put": {
+        "tags": [
+          "Create"
+        ],
+        "summary": "create.new_sample",
+        "operationId": "create.new_sample",
         "requestBody": {
-          "description": "Audio file and extraction options",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ExtractionRequest"
+                "$ref": "#/components/schemas/CreateNewSampleRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Extracted audio stems",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ExtractionResponse"
+                  "$ref": "#/components/schemas/CreateNewSampleResponse"
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid request",
+          "422": {
+            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -133,37 +142,40 @@
         }
       }
     },
-    "/tts": {
-      "post": {
-        "description": "Convert text into expressive speech using custom voice profiles",
+    "/create.new_fx": {
+      "put": {
+        "tags": [
+          "Create"
+        ],
+        "summary": "create.new_fx",
+        "operationId": "create.new_fx",
         "requestBody": {
-          "description": "Text and voice options",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TTSRequest"
+                "$ref": "#/components/schemas/CreateNewFxRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Generated speech audio",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TTSResponse"
+                  "$ref": "#/components/schemas/CreateNewFxResponse"
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid request",
+          "422": {
+            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -171,37 +183,40 @@
         }
       }
     },
-    "/audio/remix": {
-      "post": {
-        "description": "Remix or edit existing audio to create cutdowns or alternative versions",
+    "/create.new_midi_song": {
+      "put": {
+        "tags": [
+          "Create"
+        ],
+        "summary": "create.new_midi_song",
+        "operationId": "create.new_midi_song",
         "requestBody": {
-          "description": "Audio file and remix instructions",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/RemixRequest"
+                "$ref": "#/components/schemas/CreateNewMidiSongRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Remixed audio file",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/RemixResponse"
+                  "$ref": "#/components/schemas/CreateNewMidiSongResponse"
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid request",
+          "422": {
+            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -209,37 +224,396 @@
         }
       }
     },
-    "/audio/analyze": {
-      "post": {
-        "description": "Analyze audio to detect key, BPM, metadata, and fit to a text description",
+    "/create.new_melody": {
+      "put": {
+        "tags": [
+          "Create"
+        ],
+        "summary": "create.new_melody",
+        "operationId": "create.new_melody",
         "requestBody": {
-          "description": "Audio file and optional text description for comparison",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/AudioAnalysisRequest"
+                "$ref": "#/components/schemas/CreateNewMelodyRequest"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
           "200": {
-            "description": "Analysis results",
+            "description": "Successful Response",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/AudioAnalysisResponse"
+                  "$ref": "#/components/schemas/CreateNewMelodyResponse"
                 }
               }
             }
           },
-          "400": {
-            "description": "Invalid request",
+          "422": {
+            "description": "Validation Error",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Error"
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/adapt.separate_stems": {
+      "put": {
+        "tags": [
+          "Adapt"
+        ],
+        "summary": "adapt.separate_stems",
+        "operationId": "adapt.separate_stems",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdaptSeparateStemsRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdaptSeparateStemsResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/adapt.add_voice_over": {
+      "put": {
+        "tags": [
+          "Adapt"
+        ],
+        "summary": "adapt.add_voice_over",
+        "operationId": "adapt.add_voice_over",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdaptAddVoiceOverRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdaptAddVoiceOverResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/adapt.cut_down": {
+      "put": {
+        "tags": [
+          "Adapt"
+        ],
+        "summary": "adapt.cut_down",
+        "operationId": "adapt.cut_down",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdaptCutDownRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdaptCutDownResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/adapt.auto_cut_down": {
+      "put": {
+        "tags": [
+          "Adapt"
+        ],
+        "summary": "adapt.auto_cut_down",
+        "operationId": "adapt.auto_cut_down",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AdaptAutoCutDownRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AdaptAutoCutDownResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analyse.compute_keyword_similarities": {
+      "put": {
+        "tags": [
+          "Analyse"
+        ],
+        "summary": "analyse.compute_keyword_similarities",
+        "operationId": "analyse.compute_keyword_similarities",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyseComputeKeywordSimilaritiesRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyseComputeKeywordSimilaritiesResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/analyse.compute_metadata": {
+      "put": {
+        "tags": [
+          "Analyse"
+        ],
+        "summary": "analyse.compute_metadata",
+        "operationId": "analyse.compute_metadata",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AnalyseComputeMetadataRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AnalyseComputeMetadataResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/assets.download_audio": {
+      "get": {
+        "tags": [
+          "Assets"
+        ],
+        "summary": "assets.download_audio",
+        "operationId": "assets.download_audio",
+        "parameters": [
+          {
+            "name": "asset_id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "The asset ID to download"
+            }
+          },
+          {
+            "name": "format",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "enum": [
+                "mp3",
+                "wav"
+              ],
+              "type": "string",
+              "title": "The format to download the asset in",
+              "default": "mp3"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/computations.get_computation": {
+      "get": {
+        "tags": [
+          "Computations"
+        ],
+        "summary": "computations.get_computation",
+        "operationId": "computations.get_computation",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid",
+              "title": "Id"
+            }
+          },
+          {
+            "name": "wait",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "title": "Whether to wait for up to 20s for the computation to finish. Allows long polling",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful Response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ComputationsGetComputationResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
                 }
               }
             }
@@ -250,107 +624,1124 @@
   },
   "components": {
     "schemas": {
-      "MusicGenerationRequest": {
-        "type": "object",
-        "required": ["prompt"],
+      "AssetSource": {
         "properties": {
-          "prompt": { "type": "string", "example": "Energetic electronic track with female vocals" },
-          "length_seconds": { "type": "integer", "example": 180 }
-        }
+          "asset_id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "The ID of an asset in the system"
+          }
+        },
+        "type": "object",
+        "required": [
+          "asset_id"
+        ],
+        "title": "AssetSource"
       },
-      "MusicGenerationResponse": {
-        "type": "object",
+      "AudioComputation": {
         "properties": {
-          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/generated_song.mp3" }
-        }
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "The ID of the computation"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "generating",
+              "generated"
+            ],
+            "title": "The status of the computation"
+          },
+          "asset_ids": {
+            "anyOf": [
+              {
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "The IDs of the assets generated by this computation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "AudioComputation"
       },
-      "MidiGenerationRequest": {
-        "type": "object",
-        "required": ["prompt"],
+      "AudioMetadataComputation": {
         "properties": {
-          "prompt": { "type": "string", "example": "Happy jazz chord progression in C major" },
-          "editable": { "type": "boolean", "example": true }
-        }
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "The ID of the computation"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "generating",
+              "generated"
+            ],
+            "title": "The status of the computation"
+          },
+          "metadata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioMetadata"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "The computed audio metadata"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "AudioMetadataComputation"
       },
-      "MidiGenerationResponse": {
-        "type": "object",
+      "AudioMetadata": {
         "properties": {
-          "midi_url": { "type": "string", "example": "https://soundpiece.co/midi/generated_song.mid" }
-        }
+          "genres": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Genres"
+          },
+          "moods": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Moods"
+          },
+          "mood_themes": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Mood Themes"
+          },
+          "instruments": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Instruments"
+          },
+          "tempo": {
+            "type": "number",
+            "title": "Tempo"
+          },
+          "key": {
+            "type": "string",
+            "title": "Key"
+          }
+        },
+        "type": "object",
+        "required": [
+          "genres",
+          "moods",
+          "mood_themes",
+          "instruments",
+          "tempo",
+          "key"
+        ],
+        "title": "AudioMetadata"
       },
-      "ExtractionRequest": {
-        "type": "object",
-        "required": ["audio_url", "stems"],
-        "properties": {
-          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/input.mp3" },
-          "stems": { "type": "array", "items": { "type": "string", "enum": ["vocals","drums","bass","other"] } }
-        }
+      "AudioSource": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/AssetSource"
+          },
+          {
+            "$ref": "#/components/schemas/UrlSource"
+          }
+        ],
+        "title": "AudioSource"
       },
-      "ExtractionResponse": {
-        "type": "object",
+      "Callback": {
         "properties": {
-          "stem_urls": { "type": "object", "example": { "vocals": "https://soundpiece.co/audio/vocals.mp3" } }
-        }
+          "url": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "format": "uri",
+            "title": "The url that will be called when the computation is complete"
+          },
+          "context": {
+            "anyOf": [
+              {
+                "additionalProperties": true,
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "A context dictionary that will be passed unchanged to the callback url"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "Callback"
       },
-      "TTSRequest": {
-        "type": "object",
-        "required": ["text", "voice_profile"],
+      "HTTPValidationError": {
         "properties": {
-          "text": { "type": "string", "example": "Hello world, welcome to Soundpiece." },
-          "voice_profile": { "type": "string", "example": "custom_female_01" }
-        }
+          "detail": {
+            "items": {
+              "$ref": "#/components/schemas/ValidationError"
+            },
+            "type": "array",
+            "title": "Detail"
+          }
+        },
+        "type": "object",
+        "title": "HTTPValidationError"
       },
-      "TTSResponse": {
-        "type": "object",
+      "KeywordSimilaritiesComputation": {
         "properties": {
-          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/tts_output.mp3" }
-        }
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "The ID of the computation"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "generating",
+              "generated"
+            ],
+            "title": "The status of the computation"
+          },
+          "similarities": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/KeywordSimilarities"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "The computed keyword similarities"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "KeywordSimilaritiesComputation"
       },
-      "RemixRequest": {
-        "type": "object",
-        "required": ["audio_url", "instructions"],
+      "KeywordSimilarities": {
         "properties": {
-          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/original.mp3" },
-          "instructions": { "type": "string", "example": "Create a 30-second cutdown with upbeat drums" }
-        }
+          "keywords": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Keywords"
+          },
+          "comparison_type": {
+            "type": "string",
+            "title": "Comparison Type"
+          },
+          "values": {
+            "additionalProperties": {
+              "type": "number"
+            },
+            "type": "object",
+            "title": "Values"
+          }
+        },
+        "type": "object",
+        "required": [
+          "keywords",
+          "comparison_type",
+          "values"
+        ],
+        "title": "KeywordSimilarities"
       },
-      "RemixResponse": {
-        "type": "object",
+      "LevelAutomationPoint": {
         "properties": {
-          "remixed_audio_url": { "type": "string", "example": "https://soundpiece.co/audio/remix.mp3" }
-        }
+          "time": {
+            "type": "number",
+            "title": "Time"
+          },
+          "db": {
+            "type": "number",
+            "title": "Db"
+          }
+        },
+        "type": "object",
+        "required": [
+          "time",
+          "db"
+        ],
+        "title": "LevelAutomationPoint"
       },
-      "AudioAnalysisRequest": {
-        "type": "object",
-        "required": ["audio_url"],
+      "MidiComputation": {
         "properties": {
-          "audio_url": { "type": "string", "example": "https://soundpiece.co/audio/input.mp3" },
-          "text_description": { "type": "string", "example": "Energetic happy dance track" }
-        }
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "title": "The ID of the computation"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "generating",
+              "generated"
+            ],
+            "title": "The status of the computation"
+          },
+          "raw_midi": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "The midi data generated by this computation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "id",
+          "status"
+        ],
+        "title": "MidiComputation"
       },
-      "AudioAnalysisResponse": {
-        "type": "object",
+      "UrlSource": {
         "properties": {
-          "key": { "type": "string", "example": "C Major" },
-          "bpm": { "type": "integer", "example": 128 },
-          "metadata": { "type": "object", "example": { "genre": "Electronic", "mood": "Energetic" } },
-          "fit_score": { "type": "number", "format": "float", "example": 0.87 }
-        }
+          "url": {
+            "type": "string",
+            "maxLength": 255,
+            "minLength": 1,
+            "format": "uri",
+            "title": "A publicly accessible URL that returns an audio file in mp3 or wav format"
+          }
+        },
+        "type": "object",
+        "required": [
+          "url"
+        ],
+        "title": "UrlSource"
       },
-      "Error": {
-        "required": ["error", "message"],
-        "type": "object",
+      "ValidationError": {
         "properties": {
-          "error": { "type": "integer", "format": "int32" },
-          "message": { "type": "string" }
-        }
-      }
-    },
-    "securitySchemes": {
-      "bearerAuth": {
-        "type": "http",
-        "scheme": "bearer"
+          "loc": {
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "integer"
+                }
+              ]
+            },
+            "type": "array",
+            "title": "Location"
+          },
+          "msg": {
+            "type": "string",
+            "title": "Message"
+          },
+          "type": {
+            "type": "string",
+            "title": "Error Type"
+          }
+        },
+        "type": "object",
+        "required": [
+          "loc",
+          "msg",
+          "type"
+        ],
+        "title": "ValidationError"
+      },
+      "AdaptAddVoiceOverRequest": {
+        "properties": {
+          "audio": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source the voice over will be added to"
+          },
+          "voice_over": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source containing the voice over to be added"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio",
+          "voice_over"
+        ],
+        "title": "AdaptAddVoiceOverRequest"
+      },
+      "AdaptAddVoiceOverResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "AdaptAddVoiceOverResponse"
+      },
+      "AdaptAutoCutDownRequest": {
+        "properties": {
+          "audio": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to be separated"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "target_duration": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "items": {
+                  "type": "number"
+                },
+                "type": "array"
+              }
+            ],
+            "title": "Target Duration"
+          },
+          "start_type": {
+            "type": "string",
+            "enum": [
+              "any",
+              "beginning"
+            ],
+            "title": "Whether the start of the cut can be anywhere in the audio or at the beginning",
+            "default": "any"
+          },
+          "end_type": {
+            "type": "string",
+            "enum": [
+              "smart",
+              "fade"
+            ],
+            "title": "Whether the end of the cut should be faded out or a smart algorithm should be used to determine the end time",
+            "default": "smart"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio",
+          "idempotency_key",
+          "target_duration"
+        ],
+        "title": "AdaptAutoCutDownRequest"
+      },
+      "AdaptAutoCutDownResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "AdaptAutoCutDownResponse"
+      },
+      "AdaptCutDownRequest": {
+        "properties": {
+          "audio": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to be separated"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "start": {
+            "type": "number",
+            "title": "The start time of the cut"
+          },
+          "end": {
+            "type": "number",
+            "title": "The end time of the cut"
+          },
+          "fade_start": {
+            "type": "boolean",
+            "title": "Whether to fade in",
+            "default": false
+          },
+          "fade_end": {
+            "type": "boolean",
+            "title": "Whether to fade out",
+            "default": false
+          },
+          "level_automation_points": {
+            "items": {
+              "$ref": "#/components/schemas/LevelAutomationPoint"
+            },
+            "type": "array",
+            "title": "The level automation points to apply to the cut"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio",
+          "start",
+          "end"
+        ],
+        "title": "AdaptCutDownRequest"
+      },
+      "AdaptCutDownResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "AdaptCutDownResponse"
+      },
+      "AdaptSeparateStemsRequest": {
+        "properties": {
+          "audio": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to be separated"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio"
+        ],
+        "title": "AdaptSeparateStemsRequest"
+      },
+      "AdaptSeparateStemsResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "AdaptSeparateStemsResponse"
+      },
+      "AnalyseComputeKeywordSimilaritiesRequest": {
+        "properties": {
+          "audio": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to compute keyword similarities for"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "keywords": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "The keywords to analyze"
+          },
+          "comparison_type": {
+            "type": "string",
+            "enum": [
+              "music",
+              "drums",
+              "fx"
+            ],
+            "title": "The type of comparison to perform"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio",
+          "keywords",
+          "comparison_type"
+        ],
+        "title": "AnalyseComputeKeywordSimilaritiesRequest"
+      },
+      "AnalyseComputeKeywordSimilaritiesResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/KeywordSimilaritiesComputation",
+            "title": "A computation to track the keyword similarity computation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "AnalyseComputeKeywordSimilaritiesResponse"
+      },
+      "AnalyseComputeMetadataRequest": {
+        "properties": {
+          "audio": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to compute metadata for"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          }
+        },
+        "type": "object",
+        "required": [
+          "audio"
+        ],
+        "title": "AnalyseComputeMetadataRequest"
+      },
+      "AnalyseComputeMetadataResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioMetadataComputation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "AnalyseComputeMetadataResponse"
+      },
+      "ComputationsGetComputationResponse": {
+        "properties": {
+          "computation": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/AudioComputation"
+              },
+              {
+                "$ref": "#/components/schemas/MidiComputation"
+              },
+              {
+                "$ref": "#/components/schemas/KeywordSimilaritiesComputation"
+              }
+            ],
+            "title": "Computation"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "ComputationsGetComputationResponse"
+      },
+      "CreateNewFxRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "prompt": {
+            "type": "string",
+            "minLength": 1,
+            "title": "Prompt"
+          },
+          "duration": {
+            "type": "number",
+            "maximum": 30,
+            "minimum": 0.5,
+            "title": "Duration"
+          },
+          "loopable": {
+            "type": "boolean",
+            "title": "Whether the generated sample should be able to be looped",
+            "default": false
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "prompt",
+          "duration"
+        ],
+        "title": "CreateNewFxRequest"
+      },
+      "CreateNewFxResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "CreateNewFxResponse"
+      },
+      "CreateNewInstrumentalPromptRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 1024,
+            "minLength": 1,
+            "title": "Prompt"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "prompt"
+        ],
+        "title": "CreateNewInstrumentalPromptRequest"
+      },
+      "CreateNewInstrumentalReferenceRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to be used as a reference for the synthesis"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "reference"
+        ],
+        "title": "CreateNewInstrumentalReferenceRequest"
+      },
+      "CreateNewInstrumentalRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateNewInstrumentalReferenceRequest"
+          },
+          {
+            "$ref": "#/components/schemas/CreateNewInstrumentalPromptRequest"
+          }
+        ],
+        "title": "CreateNewInstrumentalRequest"
+      },
+      "CreateNewInstrumentalResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "CreateNewInstrumentalResponse"
+      },
+      "CreateNewMelodyPromptRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 1024,
+            "minLength": 1,
+            "title": "Prompt"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "prompt"
+        ],
+        "title": "CreateNewMelodyPromptRequest"
+      },
+      "CreateNewMelodyReferenceRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to be used as a reference for the synthesis"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "reference"
+        ],
+        "title": "CreateNewMelodyReferenceRequest"
+      },
+      "CreateNewMelodyRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateNewMelodyReferenceRequest"
+          },
+          {
+            "$ref": "#/components/schemas/CreateNewMelodyPromptRequest"
+          }
+        ],
+        "title": "CreateNewMelodyRequest"
+      },
+      "CreateNewMelodyResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "CreateNewMelodyResponse"
+      },
+      "CreateNewMidiSongRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 1024,
+            "minLength": 1,
+            "title": "Prompt"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "prompt"
+        ],
+        "title": "CreateNewMidiSongRequest"
+      },
+      "CreateNewMidiSongResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/MidiComputation",
+            "title": "A computation to track the generation of midi"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "CreateNewMidiSongResponse"
+      },
+      "CreateNewSampleRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 4000,
+            "minLength": 1,
+            "title": "Prompt"
+          },
+          "bpm": {
+            "type": "integer",
+            "maximum": 200,
+            "minimum": 60,
+            "title": "Bpm"
+          },
+          "duration": {
+            "type": "number",
+            "maximum": 32,
+            "minimum": 3,
+            "title": "Duration"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "prompt",
+          "bpm",
+          "duration"
+        ],
+        "title": "CreateNewSampleRequest"
+      },
+      "CreateNewSampleResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "CreateNewSampleResponse"
+      },
+      "CreateNewSongPromptRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "lyrics": {
+            "type": "string",
+            "maxLength": 3000,
+            "minLength": 1,
+            "title": "Lyrics"
+          },
+          "prompt": {
+            "type": "string",
+            "maxLength": 1024,
+            "minLength": 1,
+            "title": "Prompt"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "lyrics",
+          "prompt"
+        ],
+        "title": "CreateNewSongPromptRequest"
+      },
+      "CreateNewSongReferenceRequest": {
+        "properties": {
+          "idempotency_key": {
+            "type": "string",
+            "format": "uuid",
+            "title": "A unique uuid to allow replaying the request if an unexpected failure occurs"
+          },
+          "callback": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Callback"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Configuration for a callback that will be called when the computation is complete"
+          },
+          "lyrics": {
+            "type": "string",
+            "maxLength": 3000,
+            "minLength": 1,
+            "title": "Lyrics"
+          },
+          "reference": {
+            "$ref": "#/components/schemas/AudioSource",
+            "title": "The audio source to be used as a reference for the synthesis"
+          }
+        },
+        "type": "object",
+        "required": [
+          "idempotency_key",
+          "lyrics",
+          "reference"
+        ],
+        "title": "CreateNewSongReferenceRequest"
+      },
+      "CreateNewSongRequest": {
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/CreateNewSongReferenceRequest"
+          },
+          {
+            "$ref": "#/components/schemas/CreateNewSongPromptRequest"
+          }
+        ],
+        "title": "CreateNewSongRequest"
+      },
+      "CreateNewSongResponse": {
+        "properties": {
+          "computation": {
+            "$ref": "#/components/schemas/AudioComputation",
+            "title": "A computation to track the generation of audio"
+          }
+        },
+        "type": "object",
+        "required": [
+          "computation"
+        ],
+        "title": "CreateNewSongResponse"
       }
     }
   }
+
 }
