@@ -980,7 +980,7 @@
           "copyright_declaration": {
             "type": "boolean",
             "title": "Copyright declaration",
-            "description": "\n                Setting this to true asserts that you agree to the following:\n                \n                I declare that I am the copyright owner of &quot;{file?.name}&quot; or have permission from the owner to upload it.\n                I confirm it does not infringe the rights of others and accept responsibility for any claims\n                arising from its use.\n            ",
+            "description": "\n            Setting this to true asserts that you agree to the following:\n            \n            I declare that I am the copyright owner of the material referenced; or have permission from the owner\n            to upload it. I confirm it does not infringe the rights of others and accept responsibility for any \n            claims arising from its use.\n        ",
             "default": false
           }
         },
@@ -1338,7 +1338,7 @@
           "copyright_declaration": {
             "type": "boolean",
             "title": "Copyright declaration",
-            "description": "\n                Setting this to true asserts that you agree to the following:\n                \n                I declare that I am the copyright owner of &quot;{file?.name}&quot; or have permission from the owner to upload it.\n                I confirm it does not infringe the rights of others and accept responsibility for any claims\n                arising from its use.\n            ",
+            "description": "\n            Setting this to true asserts that you agree to the following:\n            \n            I declare that I am the copyright owner of the material referenced; or have permission from the owner\n            to upload it. I confirm it does not infringe the rights of others and accept responsibility for any \n            claims arising from its use.\n        ",
             "default": false
           },
           "idempotency_key": {
