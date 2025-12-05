@@ -1,23 +1,9 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Soundpiece API",
-    "description": "API for AI-powered music generation, MIDI creation, vocal/instrumental separation, TTS, remixing, key/BPM detection, metadata extraction, and audio analytics.",
-    "license": {
-      "name": "MIT"
-    },
-    "version": "1.0.0"
+    "title": "FastAPI",
+    "version": "0.1.0"
   },
-  "servers": [
-    {
-      "url": "https://api.soundpiece.co"
-    }
-  ],
-  "security": [
-    {
-      "bearerAuth": []
-    }
-  ],
   "paths": {
     "/create.new_instrumental": {
       "put": {
